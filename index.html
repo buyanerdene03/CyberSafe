@@ -1,0 +1,3796 @@
+<!DOCTYPE html>
+
+
+<html lang="mn">
+
+
+<head>
+
+
+    <meta charset="UTF-8">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Цахим Аюулгүй Байдал</title>
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+        :root {
+
+
+            --bg: #0d1117;
+
+
+            --surface: #161b22;
+
+
+            --surface2: #1e2530;
+
+
+            --border: #2a3142;
+
+
+            --accent: #00e5ff;
+
+
+            --accent2: #ff6b6b;
+
+
+            --accent3: #a8ff78;
+
+
+            --accent4: #ffd700;
+
+
+            --text: #e6edf3;
+
+
+            --text-muted: #8b949e;
+
+
+            --font-head: 'Nunito', sans-serif;
+
+
+            --font-mono: 'Space Mono', monospace;
+
+
+        }
+
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+
+            background: var(--bg);
+
+
+            color: var(--text);
+
+
+            font-family: var(--font-head);
+
+
+            overflow-x: hidden;
+
+
+        }
+
+
+
+
+
+        /* NOISE OVERLAY */
+
+
+        body::before {
+
+
+            content: '';
+
+
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+
+
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+
+
+            pointer-events: none;
+
+
+        }
+
+
+
+
+
+        /* NAV */
+
+
+        nav {
+
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+
+
+            background: rgba(13, 17, 23, 0.92);
+
+
+            backdrop-filter: blur(12px);
+
+
+            border-bottom: 1px solid var(--border);
+
+
+            padding: 0 2rem;
+
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+
+            height: 60px;
+
+
+        }
+
+
+        .nav-logo {
+
+
+            font-family: var(--font-mono);
+
+
+            font-size: 1rem;
+
+
+            color: var(--accent);
+
+
+            letter-spacing: 0.05em;
+
+
+            text-decoration: none;
+
+
+        }
+
+
+        .nav-logo span {
+            color: var(--accent2);
+        }
+
+
+        .nav-links {
+
+
+            display: flex;
+            gap: 0.25rem;
+
+
+            list-style: none;
+
+
+        }
+
+
+        .nav-links a {
+
+
+            color: var(--text-muted);
+
+
+            text-decoration: none;
+
+
+            font-size: 0.78rem;
+
+
+            font-weight: 700;
+
+
+            letter-spacing: 0.08em;
+
+
+            text-transform: uppercase;
+
+
+            padding: 0.4rem 0.7rem;
+
+
+            border-radius: 6px;
+
+
+            transition: all 0.2s;
+
+
+        }
+
+
+        .nav-links a:hover {
+            color: var(--accent);
+            background: rgba(0, 229, 255, 0.08);
+        }
+
+
+        .dark-toggle {
+
+
+            background: var(--surface2);
+
+
+            border: 1px solid var(--border);
+
+
+            color: var(--text-muted);
+
+
+            font-size: 1rem;
+
+
+            width: 36px;
+            height: 36px;
+
+
+            border-radius: 50%;
+
+
+            cursor: pointer;
+
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+
+            transition: all 0.2s;
+
+
+        }
+
+
+        .dark-toggle:hover {
+            color: var(--accent4);
+            border-color: var(--accent4);
+        }
+
+
+
+
+
+        /* LIGHT MODE */
+
+
+        body.light {
+
+
+            --bg: #f4f6fb;
+
+
+            --surface: #ffffff;
+
+
+            --surface2: #eef1f8;
+
+
+            --border: #d0d7e3;
+
+
+            --text: #1a202c;
+
+
+            --text-muted: #64748b;
+
+
+        }
+
+
+
+
+
+        /* SECTIONS */
+
+
+        section {
+
+
+            position: relative;
+            z-index: 1;
+
+
+            padding: 5rem 2rem;
+
+
+            max-width: 1100px;
+
+
+            margin: 0 auto;
+
+
+        }
+
+
+        .section-label {
+
+
+            font-family: var(--font-mono);
+
+
+            font-size: 0.7rem;
+
+
+            letter-spacing: 0.2em;
+
+
+            text-transform: uppercase;
+
+
+            color: var(--accent);
+
+
+            margin-bottom: 0.75rem;
+
+
+        }
+
+
+        h2 {
+
+
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+
+
+            font-weight: 900;
+
+
+            line-height: 1.1;
+
+
+            margin-bottom: 1.5rem;
+
+
+        }
+
+
+        .divider {
+
+
+            width: 100%;
+
+
+            height: 1px;
+
+
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+
+
+            margin: 0;
+
+
+        }
+
+
+
+
+
+        /* ============ HERO ============ */
+
+
+        #home {
+
+
+            min-height: 100vh;
+
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+
+            padding-top: 6rem;
+
+
+            max-width: 1100px;
+
+
+        }
+
+
+        .hero-grid {
+
+
+            display: grid;
+
+
+            grid-template-columns: 1fr 1fr;
+
+
+            gap: 3rem;
+
+
+            align-items: center;
+
+
+        }
+
+
+        .hero-tag {
+
+
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+
+
+            background: rgba(0, 229, 255, 0.08);
+
+
+            border: 1px solid rgba(0, 229, 255, 0.2);
+
+
+            padding: 0.35rem 0.9rem;
+
+
+            border-radius: 100px;
+
+
+            font-size: 0.78rem;
+
+
+            font-weight: 700;
+
+
+            color: var(--accent);
+
+
+            letter-spacing: 0.05em;
+
+
+            margin-bottom: 1.5rem;
+
+
+            animation: fadeDown 0.6s ease both;
+
+
+        }
+
+
+        .hero-tag::before {
+            content: '●';
+            font-size: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0.3
+            }
+        }
+
+
+        .hero-title {
+
+
+            font-size: clamp(2.2rem, 5vw, 4rem);
+
+
+            font-weight: 900;
+
+
+            line-height: 1.05;
+
+
+            margin-bottom: 1.2rem;
+
+
+            animation: fadeDown 0.6s 0.1s ease both;
+
+
+        }
+
+
+        .hero-title .line2 {
+            color: var(--accent);
+        }
+
+
+        .hero-desc {
+
+
+            font-size: 1.05rem;
+
+
+            color: var(--text-muted);
+
+
+            line-height: 1.7;
+
+
+            margin-bottom: 2rem;
+
+
+            animation: fadeDown 0.6s 0.2s ease both;
+
+
+        }
+
+
+        .hero-btns {
+
+
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+
+
+            animation: fadeDown 0.6s 0.3s ease both;
+
+
+        }
+
+
+        .btn {
+
+
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+
+
+            padding: 0.7rem 1.4rem;
+
+
+            border-radius: 10px;
+
+
+            font-weight: 800;
+
+
+            font-size: 0.9rem;
+
+
+            text-decoration: none;
+
+
+            cursor: pointer;
+
+
+            transition: all 0.2s;
+
+
+            border: none;
+
+
+        }
+
+
+        .btn-primary {
+
+
+            background: var(--accent);
+
+
+            color: #000;
+
+
+        }
+
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 229, 255, 0.3);
+        }
+
+
+        .btn-outline {
+
+
+            background: transparent;
+
+
+            color: var(--text);
+
+
+            border: 1px solid var(--border);
+
+
+        }
+
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(0, 229, 255, 0.05);
+        }
+
+
+        .btn-danger {
+
+
+            background: transparent;
+
+
+            color: var(--accent2);
+
+
+            border: 1px solid rgba(255, 107, 107, 0.3);
+
+
+        }
+
+
+        .btn-danger:hover {
+            background: rgba(255, 107, 107, 0.1);
+            border-color: var(--accent2);
+        }
+
+
+
+
+
+        .hero-visual {
+
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+            animation: fadeLeft 0.7s 0.2s ease both;
+
+
+        }
+
+
+        .shield-container {
+
+
+            position: relative;
+
+
+            width: 280px;
+            height: 280px;
+
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+
+        }
+
+
+        .shield-ring {
+
+
+            position: absolute;
+
+
+            border-radius: 50%;
+
+
+            border: 1px solid rgba(0, 229, 255, 0.15);
+
+
+            animation: spin 20s linear infinite;
+
+
+        }
+
+
+        .ring1 {
+            width: 280px;
+            height: 280px;
+        }
+
+
+        .ring2 {
+            width: 220px;
+            height: 220px;
+            animation-duration: 15s;
+            animation-direction: reverse;
+            border-color: rgba(168, 255, 120, 0.12);
+        }
+
+
+        .ring3 {
+            width: 160px;
+            height: 160px;
+            animation-duration: 10s;
+            border-color: rgba(255, 107, 107, 0.12);
+        }
+
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        .shield-dot {
+
+
+            position: absolute;
+
+
+            width: 6px;
+            height: 6px;
+
+
+            border-radius: 50%;
+
+
+            background: var(--accent);
+
+
+            top: 0;
+            left: 50%;
+
+
+            transform: translateX(-50%);
+
+
+            box-shadow: 0 0 8px var(--accent);
+
+
+        }
+
+
+        .shield-icon {
+
+
+            font-size: 5rem;
+
+
+            filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.4));
+
+
+            z-index: 1;
+
+
+            animation: float 4s ease-in-out infinite;
+
+
+        }
+
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-10px)
+            }
+        }
+
+
+        .stats-row {
+
+
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+
+
+            animation: fadeDown 0.6s 0.4s ease both;
+
+
+        }
+
+
+        .stat-item {
+            text-align: left;
+        }
+
+
+        .stat-num {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+
+
+
+
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-16px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+
+        @keyframes fadeLeft {
+            from {
+                opacity: 0;
+                transform: translateX(24px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0)
+            }
+        }
+
+
+
+
+
+        /* ============ USAGE ============ */
+
+
+        #usage {
+            padding-top: 4rem;
+        }
+
+
+        .usage-grid {
+
+
+            display: grid;
+
+
+            grid-template-columns: 1fr 1fr;
+
+
+            gap: 1.5rem;
+
+
+            margin-top: 2rem;
+
+
+        }
+
+
+        .usage-card {
+
+
+            background: var(--surface);
+
+
+            border: 1px solid var(--border);
+
+
+            border-radius: 16px;
+
+
+            padding: 1.5rem;
+
+
+            transition: all 0.25s;
+
+
+            position: relative;
+
+
+            overflow: hidden;
+
+
+        }
+
+
+        .usage-card::before {
+
+
+            content: '';
+
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+
+
+            height: 3px;
+
+
+            background: var(--card-color, var(--accent));
+
+
+            opacity: 0.7;
+
+
+        }
+
+
+        .usage-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--card-color, var(--accent));
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+        }
+
+
+        .usage-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+
+        .usage-card h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+
+        .usage-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+
+        .usage-bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            margin-bottom: 0.4rem;
+        }
+
+
+        .usage-bar {
+            height: 6px;
+            background: var(--border);
+            border-radius: 100px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+
+        .usage-bar-fill {
+            height: 100%;
+            border-radius: 100px;
+            background: var(--card-color, var(--accent));
+            animation: growBar 1.2s ease both;
+        }
+
+
+        @keyframes growBar {
+            from {
+                width: 0
+            }
+        }
+
+
+        .info-box {
+
+
+            background: var(--surface);
+
+
+            border: 1px solid var(--border);
+
+
+            border-left: 4px solid var(--accent);
+
+
+            border-radius: 0 12px 12px 0;
+
+
+            padding: 1.25rem 1.5rem;
+
+
+            margin-top: 2rem;
+
+
+            font-size: 0.92rem;
+
+
+            color: var(--text-muted);
+
+
+            line-height: 1.7;
+
+
+        }
+
+
+        .info-box strong {
+            color: var(--text);
+        }
+
+
+
+
+
+        /* ============ RISKS ============ */
+
+
+        #risks .risk-grid {
+
+
+            display: grid;
+
+
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+
+            gap: 1.25rem;
+
+
+            margin-top: 2rem;
+
+
+        }
+
+
+        .risk-card {
+
+
+            background: var(--surface);
+
+
+            border: 1px solid var(--border);
+
+
+            border-radius: 16px;
+
+
+            padding: 1.5rem;
+
+
+            cursor: pointer;
+
+
+            transition: all 0.25s;
+
+
+        }
+
+
+        .risk-card:hover {
+            border-color: var(--card-color);
+            background: var(--surface2);
+            box-shadow: 0 0 0 1px var(--card-color), 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+
+        .risk-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+
+        .risk-emoji {
+            font-size: 1.8rem;
+        }
+
+
+        .risk-card h3 {
+            font-size: 1rem;
+            font-weight: 800;
+        }
+
+
+        .risk-badge {
+
+
+            margin-left: auto;
+
+
+            font-size: 0.65rem;
+
+
+            font-weight: 700;
+
+
+            letter-spacing: 0.1em;
+
+
+            text-transform: uppercase;
+
+
+            padding: 0.2rem 0.6rem;
+
+
+            border-radius: 100px;
+
+
+            background: rgba(255, 107, 107, 0.15);
+
+
+            color: var(--accent2);
+
+
+            border: 1px solid rgba(255, 107, 107, 0.2);
+
+
+        }
+
+
+        .risk-badge.med {
+            background: rgba(255, 215, 0, 0.15);
+            color: var(--accent4);
+            border-color: rgba(255, 215, 0, 0.2);
+        }
+
+
+        .risk-desc {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            margin-bottom: 1rem;
+        }
+
+
+        .risk-example {
+
+
+            background: rgba(0, 0, 0, 0.2);
+
+
+            border-radius: 8px;
+
+
+            padding: 0.75rem;
+
+
+            font-size: 0.8rem;
+
+
+            font-style: italic;
+
+
+            color: var(--text-muted);
+
+
+            border-left: 2px solid var(--card-color, var(--accent));
+
+
+        }
+
+
+        body.light .risk-example {
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+
+
+
+
+        /* ============ TIPS ============ */
+
+
+        #tips .tips-grid {
+
+
+            display: grid;
+
+
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+
+            gap: 1.25rem;
+
+
+            margin-top: 2rem;
+
+
+        }
+
+
+        .tip-card {
+
+
+            background: var(--surface);
+
+
+            border: 1px solid var(--border);
+
+
+            border-radius: 16px;
+
+
+            padding: 1.5rem;
+
+
+            display: flex;
+
+
+            gap: 1rem;
+
+
+            align-items: flex-start;
+
+
+            transition: all 0.25s;
+
+
+        }
+
+
+        .tip-card:hover {
+            border-color: var(--accent3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .tip-icon-wrap {
+
+
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+
+
+            border-radius: 12px;
+
+
+            background: rgba(168, 255, 120, 0.1);
+
+
+            border: 1px solid rgba(168, 255, 120, 0.2);
+
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+
+            font-size: 1.3rem;
+
+
+        }
+
+
+        .tip-card h3 {
+            font-size: 0.95rem;
+            font-weight: 800;
+            margin-bottom: 0.4rem;
+        }
+
+
+        .tip-card p {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+
+
+
+
+        /* ============ SCENARIOS ============ */
+
+
+        #scenarios .scenario-list {
+
+
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+
+
+            margin-top: 2rem;
+
+
+        }
+
+
+        .scenario {
+
+
+            background: var(--surface);
+
+
+            border: 1px solid var(--border);
+
+
+            border-radius: 16px;
+
+
+            overflow: hidden;
+
+
+        }
+
+
+        .scenario-header {
+
+
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+
+            padding: 1.25rem 1.5rem;
+
+
+            cursor: pointer;
+
+
+            transition: background 0.2s;
+
+
+        }
+
+
+        .scenario-header:hover {
+            background: var(--surface2);
+        }
+
+
+        .scenario-num {
+
+
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+
+
+            border-radius: 50%;
+
+
+            background: rgba(0, 229, 255, 0.1);
+
+
+            border: 1px solid rgba(0, 229, 255, 0.3);
+
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+
+            font-size: 0.8rem;
+
+
+            font-weight: 800;
+
+
+            color: var(--accent);
+
+
+            font-family: var(--font-mono);
+
+
+        }
+
+
+        .scenario-header h3 {
+            font-size: 0.95rem;
+            font-weight: 800;
+            flex: 1;
+        }
+
+
+        .scenario-toggle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            transition: transform 0.3s;
+        }
+
+
+        .scenario.open .scenario-toggle {
+            transform: rotate(180deg);
+        }
+
+
+        .scenario-body {
+
+
+            max-height: 0;
+            overflow: hidden;
+
+
+            transition: max-height 0.4s ease;
+
+
+        }
+
+
+        .scenario.open .scenario-body {
+            max-height: 400px;
+        }
+
+
+        .scenario-inner {
+
+
+            padding: 0 1.5rem 1.5rem;
+
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+
+
+        }
+
+
+        .sbox {
+
+
+            border-radius: 10px;
+
+
+            padding: 1rem;
+
+
+            font-size: 0.85rem;
+
+
+            line-height: 1.6;
+
+
+        }
+
+
+        .sbox-bad {
+
+
+            background: rgba(255, 107, 107, 0.07);
+
+
+            border: 1px solid rgba(255, 107, 107, 0.2);
+
+
+        }
+
+
+        .sbox-bad .sbox-label {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+
+        .sbox-good {
+
+
+            background: rgba(168, 255, 120, 0.07);
+
+
+            border: 1px solid rgba(168, 255, 120, 0.2);
+
+
+        }
+
+
+        .sbox-good .sbox-label {
+            color: var(--accent3);
+            font-weight: 800;
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+
+        body.light .sbox-bad {
+            background: rgba(255, 107, 107, 0.05);
+        }
+
+
+        body.light .sbox-good {
+            background: rgba(100, 180, 50, 0.05);
+        }
+
+
+
+
+
+        /* ============ QUIZ ============ */
+
+
+        #quiz {
+            background: transparent;
+        }
+
+
+        .quiz-box {
+
+
+            background: var(--surface);
+
+
+            border: 1px solid var(--border);
+
+
+            border-radius: 20px;
+
+
+            padding: 2.5rem;
+
+
+            max-width: 720px;
+
+
+            margin: 2rem auto 0;
+
+
+        }
+
+
+        .quiz-progress {
+
+
+            height: 4px;
+
+
+            background: var(--border);
+
+
+            border-radius: 100px;
+
+
+            margin-bottom: 2rem;
+
+
+            overflow: hidden;
+
+
+        }
+
+
+        .quiz-progress-fill {
+
+
+            height: 100%;
+
+
+            background: linear-gradient(90deg, var(--accent), var(--accent3));
+
+
+            border-radius: 100px;
+
+
+            transition: width 0.4s ease;
+
+
+        }
+
+
+        .quiz-counter {
+
+
+            font-family: var(--font-mono);
+
+
+            font-size: 0.75rem;
+
+
+            color: var(--text-muted);
+
+
+            margin-bottom: 1.25rem;
+
+
+        }
+
+
+        .quiz-q {
+
+
+            font-size: 1.1rem;
+
+
+            font-weight: 800;
+
+
+            line-height: 1.5;
+
+
+            margin-bottom: 1.5rem;
+
+
+            min-height: 3rem;
+
+
+        }
+
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+
+        .quiz-opt {
+
+
+            background: var(--surface2);
+
+
+            border: 1px solid var(--border);
+
+
+            border-radius: 10px;
+
+
+            padding: 0.85rem 1.1rem;
+
+
+            font-size: 0.9rem;
+
+
+            font-weight: 600;
+
+
+            cursor: pointer;
+
+
+            text-align: left;
+
+
+            color: var(--text);
+
+
+            transition: all 0.2s;
+
+
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+
+
+        }
+
+
+        .quiz-opt:hover:not(:disabled) {
+            border-color: var(--accent);
+            background: rgba(0, 229, 255, 0.06);
+        }
+
+
+        .quiz-opt.correct {
+            border-color: var(--accent3);
+            background: rgba(168, 255, 120, 0.1);
+            color: var(--accent3);
+        }
+
+
+        .quiz-opt.wrong {
+            border-color: var(--accent2);
+            background: rgba(255, 107, 107, 0.1);
+            color: var(--accent2);
+        }
+
+
+        .quiz-opt:disabled {
+            cursor: default;
+        }
+
+
+        .quiz-opt-letter {
+
+
+            width: 26px;
+            height: 26px;
+            flex-shrink: 0;
+
+
+            border-radius: 6px;
+
+
+            background: var(--border);
+
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+
+            font-size: 0.75rem;
+
+
+            font-family: var(--font-mono);
+
+
+            font-weight: 700;
+
+
+        }
+
+
+        .quiz-feedback {
+
+
+            margin-top: 1.25rem;
+
+
+            padding: 1rem;
+
+
+            border-radius: 10px;
+
+
+            font-size: 0.88rem;
+
+
+            font-weight: 600;
+
+
+            display: none;
+
+
+        }
+
+
+        .quiz-feedback.show {
+            display: block;
+        }
+
+
+        .quiz-feedback.ok {
+            background: rgba(168, 255, 120, 0.1);
+            border: 1px solid rgba(168, 255, 120, 0.3);
+            color: var(--accent3);
+        }
+
+
+        .quiz-feedback.bad {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            color: var(--accent2);
+        }
+
+
+        .quiz-next {
+
+
+            display: none;
+            margin-top: 1.25rem;
+
+
+            background: var(--accent);
+
+
+            color: #000;
+
+
+            border: none;
+
+
+            border-radius: 10px;
+
+
+            padding: 0.75rem 1.5rem;
+
+
+            font-size: 0.9rem;
+
+
+            font-weight: 800;
+
+
+            cursor: pointer;
+
+
+            transition: all 0.2s;
+
+
+        }
+
+
+        .quiz-next.show {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+
+        .quiz-next:hover {
+            box-shadow: 0 6px 20px rgba(0, 229, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+
+        .quiz-result {
+
+
+            text-align: center;
+
+
+            display: none;
+
+
+        }
+
+
+        .quiz-result.show {
+            display: block;
+        }
+
+
+        .result-score {
+
+
+            font-size: 5rem;
+
+
+            font-weight: 900;
+
+
+            color: var(--accent);
+
+
+            font-family: var(--font-mono);
+
+
+            line-height: 1;
+
+
+            margin: 1rem 0;
+
+
+        }
+
+
+        .result-label {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+        }
+
+
+        .result-sub {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+
+        .quiz-restart {
+
+
+            background: transparent;
+
+
+            border: 1px solid var(--border);
+
+
+            color: var(--text);
+
+
+            padding: 0.7rem 1.4rem;
+
+
+            border-radius: 10px;
+
+
+            font-weight: 800;
+
+
+            cursor: pointer;
+
+
+            transition: all 0.2s;
+
+
+            font-size: 0.9rem;
+
+
+        }
+
+
+        .quiz-restart:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+
+
+
+
+        /* ============ HELP ============ */
+
+
+        #help .help-grid {
+
+
+            display: grid;
+
+
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+
+
+            gap: 1.25rem;
+
+
+            margin-top: 2rem;
+
+
+        }
+
+
+        .help-card {
+
+
+            background: var(--surface);
+
+
+            border: 1px solid var(--border);
+
+
+            border-radius: 16px;
+
+
+            padding: 1.75rem 1.5rem;
+
+
+            text-align: center;
+
+
+            transition: all 0.25s;
+
+
+        }
+
+
+        .help-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+        }
+
+
+        .help-icon-big {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+
+        .help-card h3 {
+            font-size: 1rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+
+        .help-card p {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+
+        .help-tag {
+
+
+            display: inline-block;
+
+
+            margin-top: 0.75rem;
+
+
+            font-size: 0.72rem;
+
+
+            font-weight: 700;
+
+
+            letter-spacing: 0.1em;
+
+
+            text-transform: uppercase;
+
+
+            padding: 0.2rem 0.7rem;
+
+
+            border-radius: 100px;
+
+
+            background: rgba(0, 229, 255, 0.1);
+
+
+            color: var(--accent);
+
+
+            border: 1px solid rgba(0, 229, 255, 0.2);
+
+
+        }
+
+
+        .did-you-know {
+
+
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.08), rgba(168, 255, 120, 0.06));
+
+
+            border: 1px solid rgba(0, 229, 255, 0.15);
+
+
+            border-radius: 16px;
+
+
+            padding: 1.5rem;
+
+
+            margin-top: 2.5rem;
+
+
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+
+
+        }
+
+
+        .dyk-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+
+        .dyk-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+
+        .dyk-text strong {
+            color: var(--accent);
+        }
+
+
+
+
+
+        /* FOOTER */
+
+
+        footer {
+
+
+            position: relative;
+            z-index: 1;
+
+
+            border-top: 1px solid var(--border);
+
+
+            padding: 2rem;
+
+
+            text-align: center;
+
+
+            font-size: 0.8rem;
+
+
+            color: var(--text-muted);
+
+
+            font-family: var(--font-mono);
+
+
+        }
+
+
+
+
+
+        /* RESPONSIVE */
+
+
+        @media (max-width: 768px) {
+
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .hero-visual {
+                display: none;
+            }
+
+
+            nav .nav-links {
+                display: none;
+            }
+
+
+            .scenario-inner {
+                grid-template-columns: 1fr;
+            }
+
+
+            .usage-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+
+
+
+    <nav>
+
+
+        <a class="nav-logo" href="#home">🛡️ <span>Cyber</span>Safe.mn</a>
+
+
+        <ul class="nav-links">
+
+
+            <li><a href="#home">Нүүр</a></li>
+
+
+            <li><a href="#usage">Хэрэглээ</a></li>
+
+
+            <li><a href="#risks">Эрсдэл</a></li>
+
+
+            <li><a href="#tips">Зөвлөмж</a></li>
+
+
+            <li><a href="#scenarios">Кейс</a></li>
+
+
+            <li><a href="#quiz">Тест</a></li>
+
+
+            <li><a href="#help">Тусламж</a></li>
+
+
+        </ul>
+
+
+        <button class="dark-toggle" onclick="toggleTheme()" title="Dark/Light">🌙</button>
+
+
+    </nav>
+
+
+
+
+
+    <!-- HOME -->
+
+
+    <section id="home">
+
+
+        <div class="hero-grid">
+
+
+            <div>
+
+
+                <div class="hero-tag">Цахим аюулгүй байдал · 2026</div>
+
+
+                <h1 class="hero-title">
+
+
+                    Цахим орчныг<br>
+
+
+                    <span class="line2">аюулгүй ашиглах</span><br>
+
+
+                    гарын авлага
+
+
+                </h1>
+
+
+                <p class="hero-desc">
+
+
+                    Өсвөр насныхны цахим орчон дахь аюулгүй байдлыг дэмжих зорилгоор бэлтгэгдсэн. Эрсдэлийг таньж, зөв
+                    арга хэмжээ авч сур.
+
+
+                </p>
+
+
+                <div class="hero-btns">
+
+
+                    <a href="#tips" class="btn btn-primary">🛡️ Зөвлөмж үзэх</a>
+
+
+                    <a href="#risks" class="btn btn-danger">⚠️ Эрсдэлүүд</a>
+
+
+                    <a href="#quiz" class="btn btn-outline">📝 Тест өгөх</a>
+
+
+                </div>
+
+
+                <div class="stats-row">
+
+
+                    <div class="stat-item">
+
+
+                        <div class="stat-num">6.4ц</div>
+
+
+                        <div class="stat-label">Өдөрт цахимд</div>
+
+
+                    </div>
+
+
+                    <div class="stat-item">
+
+
+                        <div class="stat-num">73%</div>
+
+
+                        <div class="stat-label">Өсвөр насны хэрэглэгч</div>
+
+
+                    </div>
+
+
+                    <div class="stat-item">
+
+
+                        <div class="stat-num">5</div>
+
+
+                        <div class="stat-label">Голлох эрсдэл</div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="hero-visual">
+
+
+                <div class="shield-container">
+
+
+                    <div class="shield-ring ring1">
+                        <div class="shield-dot"></div>
+                    </div>
+
+
+                    <div class="shield-ring ring2"></div>
+
+
+                    <div class="shield-ring ring3"></div>
+
+
+                    <div class="shield-icon">🛡️</div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+    <div class="divider"></div>
+
+
+
+
+
+    <!-- USAGE -->
+
+
+    <section id="usage">
+
+
+        <div class="section-label">// 01 · Хэрэглээ</div>
+
+
+        <h2>Өсвөр насныхны<br>цахим хэрэглээ</h2>
+
+
+        <p style="color:var(--text-muted);max-width:560px;line-height:1.7;margin-bottom:0.5rem;font-size:0.95rem;">
+
+
+            Монголын өсвөр насныхан өдөрт дунджаар 6–8 цаг цахим орчинд өнгөрүүлдэг. Тэдний хэрэглэдэг платформ,
+            агуулгыг ойлгох нь аюулгүй байдлын эхний алхам.
+
+
+        </p>
+
+
+        <div class="usage-grid">
+
+
+            <div class="usage-card" style="--card-color:#ff6b6b">
+
+
+                <div class="usage-icon">📱</div>
+
+
+                <h3>Социал медиа</h3>
+
+
+                <p>TikTok, Instagram, Facebook гэх мэт платформ хамгийн их хэрэглэгддэг. Хувийн мэдээлэл, зураг
+                    хуваалцах нь эрсдэлтэй байж болно.</p>
+
+
+                <div style="margin-top:1rem">
+
+
+                    <div class="usage-bar-label"><span>Хэрэглэлтийн хувь</span><span>68%</span></div>
+
+
+                    <div class="usage-bar">
+                        <div class="usage-bar-fill" style="width:68%"></div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="usage-card" style="--card-color:#a8ff78">
+
+
+                <div class="usage-icon">🎮</div>
+
+
+                <h3>Тоглоом (Gaming)</h3>
+
+
+                <p>Online тоглоомд танихгүй хүмүүстэй харилцах, дотроо худалдан авалт хийх гэх мэт асуудал тулгардаг.
+                </p>
+
+
+                <div style="margin-top:1rem">
+
+
+                    <div class="usage-bar-label"><span>Хэрэглэлтийн хувь</span><span>55%</span></div>
+
+
+                    <div class="usage-bar">
+                        <div class="usage-bar-fill" style="width:55%;background:#a8ff78"></div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="usage-card" style="--card-color:#ffd700">
+
+
+                <div class="usage-icon">📺</div>
+
+
+                <h3>Streaming</h3>
+
+
+                <p>YouTube, Netflix болон бусад агуулга үзэх нь хамгийн урт цагийг авдаг. Контентийн чанар, насны
+                    хязгаар чухал.</p>
+
+
+                <div style="margin-top:1rem">
+
+
+                    <div class="usage-bar-label"><span>Хэрэглэлтийн хувь</span><span>82%</span></div>
+
+
+                    <div class="usage-bar">
+                        <div class="usage-bar-fill" style="width:82%;background:#ffd700"></div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="usage-card" style="--card-color:#00e5ff">
+
+
+                <div class="usage-icon">💬</div>
+
+
+                <h3>Мессенжер</h3>
+
+
+                <p>WhatsApp, Messenger, Discord зэрэг апп-уудаар харилцдаг. Бүлгийн чат дотор хүсээгүй агуулга дамжих
+                    эрсдэлтэй.</p>
+
+
+                <div style="margin-top:1rem">
+
+
+                    <div class="usage-bar-label"><span>Хэрэглэлтийн хувь</span><span>74%</span></div>
+
+
+                    <div class="usage-bar">
+                        <div class="usage-bar-fill" style="width:74%"></div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="info-box">
+
+
+            💡 <strong>Мэдэх үү?</strong> Монголын өсвөр насны хүүхдүүдийн <strong>73%</strong> нь ухаалаг гар утасны
+            эхний хэрэглэгч болох үед <strong>12 нас хүрсэн байдаггүй</strong>. Эрт сурах нь аюулгүй байдлын хамгийн
+            сайн арга.
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+    <div class="divider"></div>
+
+
+
+
+
+    <!-- RISKS -->
+
+
+    <section id="risks">
+
+
+        <div class="section-label">// 02 · Эрсдэл</div>
+
+
+        <h2>Түгээмэл эрсдэлүүд</h2>
+
+
+        <p style="color:var(--text-muted);max-width:560px;line-height:1.7;font-size:0.95rem;">
+
+
+            Цахим орчинд таарч болох гол аюулуудыг таньж мэдэх нь тэдгээрээс хамгаалах эхний алхам юм.
+
+
+        </p>
+
+
+        <div class="risk-grid">
+
+
+            <div class="risk-card" style="--card-color:#ff6b6b">
+
+
+                <div class="risk-header">
+
+
+                    <div class="risk-emoji">😡</div>
+
+
+                    <h3>Цахим дарамт (Cyberbullying)</h3>
+
+
+                    <span class="risk-badge">Өндөр</span>
+
+
+                </div>
+
+
+                <p class="risk-desc">Интернетэр дамжуулан хэн нэгнийг дооромжлох, заналхийлэх, буруу мэдээлэл тараах.
+                    Бодит амьдралтай адил хохирол учруулдаг.</p>
+
+
+                <div class="risk-example">💬 Жишээ: Ангийнхны бүлгийн чатад нэг хүний зургийг буруугаар засаж тарааж,
+                    инээдэмд оруулах.</div>
+
+
+            </div>
+
+
+            <div class="risk-card" style="--card-color:#ffd700">
+
+
+                <div class="risk-header">
+
+
+                    <div class="risk-emoji">🔓</div>
+
+
+                    <h3>Хувийн мэдээлэл алдагдах</h3>
+
+
+                    <span class="risk-badge med">Дунд</span>
+
+
+                </div>
+
+
+                <p class="risk-desc">Утасны дугаар, гэрийн хаяг, сургуулийн нэр зэрэг мэдээллийг цахимд нийтэлснээр
+                    гадны хүмүүст хялбархан хүрч болно.</p>
+
+
+                <div class="risk-example">💬 Жишээ: "Бид өнөөдөр сургуульд биш" гэсэн нийтлэл хулгайч нарт боломж
+                    олгоно.</div>
+
+
+            </div>
+
+
+            <div class="risk-card" style="--card-color:#ff6b6b">
+
+
+                <div class="risk-header">
+
+
+                    <div class="risk-emoji">📰</div>
+
+
+                    <h3>Хуурамч мэдээ (Fake News)</h3>
+
+
+                    <span class="risk-badge">Өндөр</span>
+
+
+                </div>
+
+
+                <p class="risk-desc">Нотлогдоогүй, буруу мэдээллийг хурдан тараах нь нийгмийн хохирол учруулж, хүмүүсийг
+                    буруу шийдвэр гаргахад хүргэдэг.</p>
+
+
+                <div class="risk-example">💬 Жишээ: "Энэ эм COVID-оос эдгэрүүлдэг" гэсэн хуурамч зур нийтлэгдэж, хүмүүс
+                    худалдан авах.</div>
+
+
+            </div>
+
+
+            <div class="risk-card" style="--card-color:#ff6b6b">
+
+
+                <div class="risk-header">
+
+
+                    <div class="risk-emoji">🎣</div>
+
+
+                    <h3>Онлайн залилан (Phishing/Scam)</h3>
+
+
+                    <span class="risk-badge">Өндөр</span>
+
+
+                </div>
+
+
+                <p class="risk-desc">Хуурамч вэбсайт, мессеж, имэйлээр нэвтрэх нэр, нууц үг, карт дугаар хулгайлах
+                    оролдлого.</p>
+
+
+                <div class="risk-example">💬 Жишээ: "Та 1 сая төгрөг хожлоо, энд дарж авна уу" гэсэн линк.</div>
+
+
+            </div>
+
+
+            <div class="risk-card" style="--card-color:#ffd700">
+
+
+                <div class="risk-header">
+
+
+                    <div class="risk-emoji">📵</div>
+
+
+                    <h3>Цахим донтолт</h3>
+
+
+                    <span class="risk-badge med">Дунд</span>
+
+
+                </div>
+
+
+                <p class="risk-desc">Тоглоом, социал медиад хэт их цаг зарцуулах нь унтах, сурах, нийгмийн харилцааг
+                    хохироодог.</p>
+
+
+                <div class="risk-example">💬 Жишээ: Тоглоомоо орхиж чадахгүйн улмаас шөнийн 3-4 болтол сэрэл хийх.</div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+    <div class="divider"></div>
+
+
+
+
+
+    <!-- TIPS -->
+
+
+    <section id="tips">
+
+
+        <div class="section-label">// 03 · Зөвлөмж</div>
+
+
+        <h2>Хэрхэн аюулгүй<br>ашиглах вэ?</h2>
+
+
+        <p style="color:var(--text-muted);max-width:560px;line-height:1.7;font-size:0.95rem;">
+
+
+            Энэ зөвлөмжүүдийг мөрдвөл цахим орчинд аюулгүй байх боломж эрс нэмэгдэнэ.
+
+
+        </p>
+
+
+        <div class="tips-grid">
+
+
+            <div class="tip-card">
+
+
+                <div class="tip-icon-wrap">🔑</div>
+
+
+                <div>
+
+
+                    <h3>Хүчтэй нууц үг ашигла</h3>
+
+
+                    <p>8-аас дээш тэмдэгт, том/жижиг үсэг, тоо, тэмдэгт хольсон нууц үг тавь. Нэг нууц үгийг олон газар
+                        бүү хэрэглэ.</p>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="tip-card">
+
+
+                <div class="tip-icon-wrap">🤫</div>
+
+
+                <div>
+
+
+                    <h3>Хувийн мэдээлэл бүү хуваалц</h3>
+
+
+                    <p>Утасны дугаар, хаяг, сургуулийн нэр, өдөр тутмын зуршлаа цахимд нийтлэхгүй байх. Танихгүй хүнд
+                        хэзээ ч бүү хэл.</p>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="tip-card">
+
+
+                <div class="tip-icon-wrap">🚫</div>
+
+
+                <div>
+
+
+                    <h3>Сэжигтэй линк бүү дар</h3>
+
+
+                    <p>Хэн нэгэн линк илгээвэл эхлээд сайтар харж үз. Эх сурвалж нь найдвартай эсэхийг шалгаж байж дар.
+                        Мэдэхгүй бол бүү дар.</p>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="tip-card">
+
+
+                <div class="tip-icon-wrap">⚙️</div>
+
+
+                <div>
+
+
+                    <h3>Privacy тохиргоо хий</h3>
+
+
+                    <p>Бүх социал медиа апп-аа "найзуудад" эсвэл "хаалттай" горимд тохируул. Танихгүй хүн чиний
+                        мэдээллийг харахгүй байг.</p>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="tip-card">
+
+
+                <div class="tip-icon-wrap">👤</div>
+
+
+                <div>
+
+
+                    <h3>Stranger-тэй болгоомжтой бай</h3>
+
+
+                    <p>Цахимаар танилцсан хүний ярьж байгаа зүйл нь үнэн байх шаардлагагүй. Уулзах санал ирвэл заавал
+                        эцэг эхдээ мэдэгд.</p>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="tip-card">
+
+
+                <div class="tip-icon-wrap">💭</div>
+
+
+                <div>
+
+
+                    <h3>Нийтлэхийн өмнө бод</h3>
+
+
+                    <p>"Энэ зураг/пост-ийг найз минь харвал яах вэ, багш минь харвал яах вэ?" гэж асуугаарай. Нийтэлсэн
+                        зүйлийг бүрэн устгах боломжгүй.</p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+    <div class="divider"></div>
+
+
+
+
+
+    <!-- SCENARIOS -->
+
+
+    <section id="scenarios">
+
+
+        <div class="section-label">// 04 · Кейс</div>
+
+
+        <h2>Жишээ нөхцөл байдал</h2>
+
+
+        <p style="color:var(--text-muted);max-width:560px;line-height:1.7;font-size:0.95rem;">
+
+
+            Яг тулгарч болох нөхцөлүүдэд хэрхэн зөв шийдвэр гаргах вэ? Задлан харцгаая.
+
+
+        </p>
+
+
+        <div class="scenario-list">
+
+
+
+
+
+            <div class="scenario" onclick="toggleScenario(this)">
+
+
+                <div class="scenario-header">
+
+
+                    <div class="scenario-num">01</div>
+
+
+                    <h3>"Танихгүй хүн найзлах хүсэлт илгээвэл яах вэ?"</h3>
+
+
+                    <span class="scenario-toggle">▾</span>
+
+
+                </div>
+
+
+                <div class="scenario-body">
+
+
+                    <div class="scenario-inner">
+
+
+                        <div class="sbox sbox-bad">
+
+
+                            <div class="sbox-label">❌ Буруу шийдэл</div>
+
+
+                            Тэр хүн маш найрсаг харагдаж байна гэж бодоод хүсэлтийг зөвшөөрөх. Яриа эхлэх, хувийн
+                            мэдээлэл хуваалцах.
+
+
+                        </div>
+
+
+                        <div class="sbox sbox-good">
+
+
+                            <div class="sbox-label">✅ Зөв шийдэл</div>
+
+
+                            Хүсэлтийг хүлээн авахгүй. Хэрвээ хүсэлт давтагдвал эцэг эх, итгэлтэй насанд хүрсэн хүндээ
+                            мэдэгд. Тухайн хаягийг "Block" хий.
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <div class="scenario" onclick="toggleScenario(this)">
+
+
+                <div class="scenario-header">
+
+
+                    <div class="scenario-num">02</div>
+
+
+                    <h3>"Зургийг минь зөвшөөрөлгүй share хийвэл?"</h3>
+
+
+                    <span class="scenario-toggle">▾</span>
+
+
+                </div>
+
+
+                <div class="scenario-body">
+
+
+                    <div class="scenario-inner">
+
+
+                        <div class="sbox sbox-bad">
+
+
+                            <div class="sbox-label">❌ Буруу шийдэл</div>
+
+
+                            Ичиж, нуугаад хэнд ч хэлэхгүй байх. Эсвэл өөрөө буцаад хамааралтай нийтлэл хийх.
+
+
+                        </div>
+
+
+                        <div class="sbox sbox-good">
+
+
+                            <div class="sbox-label">✅ Зөв шийдэл</div>
+
+
+                            Тухайн пост-ыг "Report" хий. Эцэг эх эсвэл итгэлтэй насанд хүрсэн хүнд мэдэгд. Шаардлагатай
+                            бол сургуулийн зөвлөхөд хандаарай.
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <div class="scenario" onclick="toggleScenario(this)">
+
+
+                <div class="scenario-header">
+
+
+                    <div class="scenario-num">03</div>
+
+
+                    <h3>"Мессежээр 'хурдан нэвтрэх нэр, нууц үгээ илгээ' гэвэл?"</h3>
+
+
+                    <span class="scenario-toggle">▾</span>
+
+
+                </div>
+
+
+                <div class="scenario-body">
+
+
+                    <div class="scenario-inner">
+
+
+                        <div class="sbox sbox-bad">
+
+
+                            <div class="sbox-label">❌ Буруу шийдэл</div>
+
+
+                            "Энэ платформийн ажилтан байх" гэж бодоод нэвтрэх мэдээллээ илгээх.
+
+
+                        </div>
+
+
+                        <div class="sbox sbox-good">
+
+
+                            <div class="sbox-label">✅ Зөв шийдэл</div>
+
+
+                            Ямар ч байгууллага нууц үгийг чинь асуухгүй. Тухайн мессежийг устгаж, хаягийг хаа.
+                            Шаардлагатай бол нууц үгээ солио.
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <div class="scenario" onclick="toggleScenario(this)">
+
+
+                <div class="scenario-header">
+
+
+                    <div class="scenario-num">04</div>
+
+
+                    <h3>"Чат дотор найзаасаа зовлон байгаа гэж мессеж ирвэл?"</h3>
+
+
+                    <span class="scenario-toggle">▾</span>
+
+
+                </div>
+
+
+                <div class="scenario-body">
+
+
+                    <div class="scenario-inner">
+
+
+                        <div class="sbox sbox-bad">
+
+
+                            <div class="sbox-label">❌ Буруу шийдэл</div>
+
+
+                            Дангаар нь шийдэхийг оролдох, эсвэл "нууц байлгах" амлалт өгч, насанд хүрсэн хүнд хэлэхгүй
+                            байх.
+
+
+                        </div>
+
+
+                        <div class="sbox sbox-good">
+
+
+                            <div class="sbox-label">✅ Зөв шийдэл</div>
+
+
+                            Анхаарал хандуулж, найзаа чин сэтгэлээсээ дэмж. Хэрвээ аюул занал мэдрэгдвэл заавал эцэг эх
+                            эсвэл сургуулийн зөвлөхд мэдэгд.
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+    <div class="divider"></div>
+
+
+
+
+
+    <!-- QUIZ -->
+
+
+    <section id="quiz">
+
+
+        <div class="section-label">// 05 · Тест</div>
+
+
+        <h2>Өөрийгөө шалгаарай</h2>
+
+
+        <p style="color:var(--text-muted);max-width:560px;line-height:1.7;font-size:0.95rem;">
+
+
+            "Аюулгүй хэрэглэгч мөн үү?" гэдгээ шалгаад үзэ. 7 асуулт, 5 минут.
+
+
+        </p>
+
+
+        <div class="quiz-box">
+
+
+            <div id="quizContent">
+
+
+                <div class="quiz-progress">
+                    <div class="quiz-progress-fill" id="quizProg" style="width:0%"></div>
+                </div>
+
+
+                <div class="quiz-counter" id="quizCounter">Асуулт 1 / 7</div>
+
+
+                <div class="quiz-q" id="quizQ"></div>
+
+
+                <div class="quiz-options" id="quizOpts"></div>
+
+
+                <div class="quiz-feedback" id="quizFeedback"></div>
+
+
+                <button class="quiz-next" id="quizNext" onclick="nextQuestion()">Дараагийн асуулт →</button>
+
+
+            </div>
+
+
+            <div class="quiz-result" id="quizResult">
+
+
+                <div style="font-size:2rem">🏆</div>
+
+
+                <div class="result-score" id="resultScore"></div>
+
+
+                <div class="result-label" id="resultLabel"></div>
+
+
+                <div class="result-sub" id="resultSub"></div>
+
+
+                <button class="quiz-restart" onclick="restartQuiz()">🔄 Дахин өгөх</button>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+    <div class="divider"></div>
+
+
+
+
+
+    <!-- HELP -->
+
+
+    <section id="help">
+
+
+        <div class="section-label">// 06 · Тусламж</div>
+
+
+        <h2>Асуудал тулгарвал<br>хаана хандах вэ?</h2>
+
+
+        <p style="color:var(--text-muted);max-width:560px;line-height:1.7;font-size:0.95rem;">
+
+
+            Ганцаараа шийдэхийг оролдохгүй. Доорх хүмүүс болон байгууллагуудад хандаарай.
+
+
+        </p>
+
+
+        <div class="help-grid">
+
+
+            <div class="help-card">
+
+
+                <div class="help-icon-big">👨‍👩‍👧</div>
+
+
+                <h3>Эцэг эх</h3>
+
+
+                <p>Хамгийн итгэлтэй хүмүүс. Ямар асуудал тулгарсан ч эхлээд эцэг эхдээ мэдэгдэ. Тэд тусална.</p>
+
+
+                <span class="help-tag">Эхний алхам</span>
+
+
+            </div>
+
+
+            <div class="help-card">
+
+
+                <div class="help-icon-big">👩‍🏫</div>
+
+
+                <h3>Багш / Зөвлөх</h3>
+
+
+                <p>Сургуулийн багш эсвэл сэтгэл зүйчид. Нууцлал сахина, шийдвэрлэхэд тусална.</p>
+
+
+                <span class="help-tag">Найдвартай</span>
+
+
+            </div>
+
+
+            <div class="help-card">
+
+
+                <div class="help-icon-big">🚔</div>
+
+
+                <h3>Цагдаагийн газар</h3>
+
+
+                <p>Ноцтой аюул, залилан, дарамт тулгарсан бол хууль хэрэгжүүлэх байгууллагад хандана.</p>
+
+
+                <span class="help-tag">Яаралтай тусламж</span>
+
+
+            </div>
+
+
+            <div class="help-card">
+
+
+                <div class="help-icon-big">💻</div>
+
+
+                <h3>Платформд мэдэгд</h3>
+
+
+                <p>Аливаа контент, хаягийг "Report" товч ашиглан мэдүүлж болно. Платформ арга хэмжээ авна.</p>
+
+
+                <span class="help-tag">Онлайн хэрэгсэл</span>
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="did-you-know">
+
+
+            <div class="dyk-icon">💡</div>
+
+
+            <div class="dyk-text">
+
+
+                <strong>Did you know?</strong> — Монгол улсад хүүхдийн эрхийг хамгаалах <strong>"108"</strong> утасны
+                дугаар байдаг. Хэрвээ хүүхэд буюу та өөрөө аюул заналд өртсөн бол тэр дугаарт залгаарай. <strong>24/7
+                    ажилладаг бөгөөд үнэгүй.</strong>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+    <footer>
+
+
+        🛡️ CyberSafe.mn · Цахим аюулгүй байдлын гарын авлага · 2026
+
+
+    </footer>
+
+
+
+
+
+    <script>
+
+
+        // DARK/LIGHT TOGGLE
+
+
+        function toggleTheme() {
+
+
+            document.body.classList.toggle('light');
+
+
+            const btn = document.querySelector('.dark-toggle');
+
+
+            btn.textContent = document.body.classList.contains('light') ? '🌙' : '☀️';
+
+
+        }
+
+
+
+
+
+        // SCENARIO ACCORDION
+
+
+        function toggleScenario(el) {
+
+
+            const wasOpen = el.classList.contains('open');
+
+
+            document.querySelectorAll('.scenario').forEach(s => s.classList.remove('open'));
+
+
+            if (!wasOpen) el.classList.add('open');
+
+
+        }
+
+
+
+
+
+        // QUIZ
+
+
+        const questions = [
+
+
+            {
+
+
+                q: "Нууц үгт ямар нь тохиромжтой вэ?",
+
+
+                opts: ["1234", "нэр + төрсөн он", "Mn@7x#K2p!", "нэвтрэх нэртэй ижил"],
+
+
+                ans: 2,
+
+
+                exp: "✅ Том/жижиг үсэг, тоо, тусгай тэмдэгт хольсон нууц үг хамгийн хүчтэй."
+
+
+            },
+
+
+            {
+
+
+                q: '"Та хожлоо! Одоо энд дарж мэдээллээ оруулна уу" гэсэн мессеж ирвэл?',
+
+
+                opts: ["Дарж мэдээллээ оруулна", "Найздаа дамжуулна", "Устгаж, хаягийг хаана", "Хэдэн удаа шалгана"],
+
+
+                ans: 2,
+
+
+                exp: "✅ Энэ бол phishing халдлагын ердийн арга. Дарахгүй, устга."
+
+
+            },
+
+
+            {
+
+
+                q: "Цахимаар танилцсан хүн уулзах санал тавьвал?",
+
+
+                opts: ["Зөвшөөрч, дангаараа очно", "Эцэг эхдээ мэдэгдэнэ", "Хаяг хуваалцана", "Хурдан зөвшөөрнө"],
+
+
+                ans: 1,
+
+
+                exp: "✅ Цахимаар танилцсан хүн биечлэн уулзахад заавал насанд хүрсэн хүнд мэдэгдэж, олон нийтийн газар уулзана."
+
+
+            },
+
+
+            {
+
+
+                q: "Найзын зургийг тэдний зөвшөөрөлгүй нийтлэх нь?",
+
+
+                opts: ["Ер нь зүйтэй", "Нийтлэлийн агуулгаас хамаарна", "Хуулийн зөрчил, буруу үйлдэл", "Яагаад ч биш зүйтэй"],
+
+
+                ans: 2,
+
+
+                exp: "✅ Хүний зургийг зөвшөөрөлгүй нийтлэх нь хувийн нууцын зөрчил бөгөөд хуульд харшилна."
+
+
+            },
+
+
+            {
+
+
+                q: "Privacy settings талаар аль нь зөв вэ?",
+
+
+                opts: ["Анхны тохиргоог нь орхино", "Бүгдэд нээлттэй байлгана", "Зөвхөн найзуудад харуулна", "Тохиргоо хамаагүй"],
+
+
+                ans: 2,
+
+
+                exp: "✅ Нийгмийн сүлжээний тохиргоогоо зөвхөн найзуудад харуулна гэж тохируулах нь аюулгүй."
+
+
+            },
+
+
+            {
+
+
+                q: "Мэдэхгүй хүн 'password' асуувал?",
+
+
+                opts: ["Найзынхаа нэр хэлнэ", "Нэг л удаа хэлнэ", "Хэзээ ч хэлэхгүй", "Зарим тохиолдолд зөвшөөрнө"],
+
+
+                ans: 2,
+
+
+                exp: "✅ Нууц үгийг ХЭЗЭЭ Ч хэнд ч хэлэхгүй. Жинхэнэ байгууллага хэзээ ч нууц үгийг асуухгүй."
+
+
+            },
+
+
+            {
+
+
+                q: "Цахим орчинд бусдыг дорд үздэг контент харвал?",
+
+
+                opts: ["Өнгөрч явна", "Like өгнө", "Report хийнэ, бусдад дэмжлэг үзүүлнэ", "Share хийнэ"],
+
+
+                ans: 2,
+
+
+                exp: "✅ Cyberbullying-г мэдэгдэх, хохирогчийг дэмжих нь нийгмийн хариуцлага."
+
+
+            }
+
+
+        ];
+
+
+
+
+
+        let cur = 0, score = 0, answered = false;
+
+
+
+
+
+        function renderQ() {
+
+
+            const q = questions[cur];
+
+
+            document.getElementById('quizCounter').textContent = `Асуулт ${cur + 1} / ${questions.length}`;
+
+
+            document.getElementById('quizProg').style.width = `${(cur / questions.length) * 100}%`;
+
+
+            document.getElementById('quizQ').textContent = q.q;
+
+
+            document.getElementById('quizFeedback').className = 'quiz-feedback';
+
+
+            document.getElementById('quizNext').className = 'quiz-next';
+
+
+            answered = false;
+
+
+            const opts = document.getElementById('quizOpts');
+
+
+            opts.innerHTML = '';
+
+
+            const letters = ['A', 'B', 'C', 'D'];
+
+
+            q.opts.forEach((opt, i) => {
+
+
+                const btn = document.createElement('button');
+
+
+                btn.className = 'quiz-opt';
+
+
+                btn.innerHTML = `<span class="quiz-opt-letter">${letters[i]}</span>${opt}`;
+
+
+                btn.onclick = () => selectOpt(i, btn);
+
+
+                opts.appendChild(btn);
+
+
+            });
+
+
+        }
+
+
+
+
+
+        function selectOpt(idx, btn) {
+
+
+            if (answered) return;
+
+
+            answered = true;
+
+
+            const q = questions[cur];
+
+
+            const allBtns = document.querySelectorAll('.quiz-opt');
+
+
+            allBtns.forEach(b => b.disabled = true);
+
+
+            const fb = document.getElementById('quizFeedback');
+
+
+            if (idx === q.ans) {
+
+
+                btn.classList.add('correct');
+
+
+                score++;
+
+
+                fb.textContent = q.exp;
+
+
+                fb.className = 'quiz-feedback show ok';
+
+
+            } else {
+
+
+                btn.classList.add('wrong');
+
+
+                allBtns[q.ans].classList.add('correct');
+
+
+                fb.textContent = '❌ ' + q.exp;
+
+
+                fb.className = 'quiz-feedback show bad';
+
+
+            }
+
+
+            document.getElementById('quizNext').className = 'quiz-next show';
+
+
+        }
+
+
+
+
+
+        function nextQuestion() {
+
+
+            cur++;
+
+
+            if (cur >= questions.length) {
+
+
+                showResult();
+
+
+            } else {
+
+
+                renderQ();
+
+
+            }
+
+
+        }
+
+
+
+
+
+        function showResult() {
+
+
+            document.getElementById('quizContent').style.display = 'none';
+
+
+            const res = document.getElementById('quizResult');
+
+
+            res.className = 'quiz-result show';
+
+
+            document.getElementById('resultScore').textContent = `${score}/${questions.length}`;
+
+
+            let label, sub;
+
+
+            if (score >= 6) { label = '🌟 Аюулгүй хэрэглэгч!'; sub = 'Та цахим аюулгүй байдлыг маш сайн ойлгож байна. Найздаа ч заагаарай!'; }
+
+
+            else if (score >= 4) { label = '👍 Дундаж мэдлэгтэй'; sub = 'Цааш нь судалбал илүү аюулгүй байх боломжтой. Tips хэсгийг дахин харж үз.'; }
+
+
+            else { label = '📚 Илүү сурах хэрэгтэй'; sub = 'Санаа зоволтгүй — энэ вэбсайтын зөвлөмж хэсгийг сайтар уншаарай!'; }
+
+
+            document.getElementById('resultLabel').textContent = label;
+
+
+            document.getElementById('resultSub').textContent = sub;
+
+
+        }
+
+
+
+
+
+        function restartQuiz() {
+
+
+            cur = 0; score = 0;
+
+
+            document.getElementById('quizContent').style.display = 'block';
+
+
+            document.getElementById('quizResult').className = 'quiz-result';
+
+
+            renderQ();
+
+
+        }
+
+
+
+
+
+        renderQ();
+
+
+    </script>
+
+
+</body>
+
+
+</html>
